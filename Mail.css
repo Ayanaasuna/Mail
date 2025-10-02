@@ -1,0 +1,88 @@
+.BG {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;     /* stretch background to window width */
+  height: auto;    /* keep aspect */
+}
+
+.welcomeWord {
+  display: flex;
+  position: absolute;
+  top: 12vw;             /* stays 20% down */
+  left: 50vw;            /* centered horizontally */
+  transform: translate(-50%, -50%);
+}
+
+.letter {
+  width: 60vw;          /* each letter is 15% of viewport width */
+  height: auto;
+  opacity: 0;
+  animation: fadeDown 0.3s ease forwards;
+}
+
+/* overlap scales with screen size too */
+.letter:not(:first-child) {
+  margin-left: -60vw;  /* half the width of a letter */
+}
+
+/* animation delays */
+.l1 { animation-delay: 0s; }
+.l2 { animation-delay: 0.1s; }
+.l3 { animation-delay: 0.2s; }
+.l4 { animation-delay: 0.3s; }
+.l5 { animation-delay: 0.4s; }
+.l6 { animation-delay: 0.5s; }
+.l7 { animation-delay: 0.6s; }
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-1vh); /* drop distance scales with screen height */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  position: absolute;           /* << lock to viewport/background */
+  top: 33vw;                 /* 60% down the screen */
+  left: 50vw;                /* centered horizontally */
+  transform: translate(-50%, -50%);
+  width: 30vw;               /* scales with screen */
+  z-index: 20;               /* make sure it shows above background */
+}
+
+.loginInput {
+  padding: 1.5vw 3vw;
+  border: none;
+  border-radius: 1vw;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 1.7vw;
+}
+
+.loginInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.loginButton {
+  padding: 2vw 2vw;
+  border: none;
+  border-radius: 1vw;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  font-size: 2vw;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.loginButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
