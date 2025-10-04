@@ -11,6 +11,7 @@
   <!-- Background image -->
   <img src="./Images/Mail5.jpeg" class="BG" alt="Background">
 
+  <!-- Welcome letters (kept as you had them) -->
   <div class="welcomeWord">
     <img src="./Images/W.png"  class="letter l1" alt="W">
     <img src="./Images/E.png"  class="letter l2" alt="E">
@@ -21,11 +22,25 @@
     <img src="./Images/E2.png" class="letter l7" alt="E">
   </div>
 
-  <div class="loginBox">
-    <input type="text" placeholder="Email" class="loginInput">
-    <input type="password" placeholder="Password" class="loginInput">
-    <button class="loginButton">Login</button>
+  <!-- Optional sparkle gif -->
+  <img src="./Images/Sparkle.gif" alt="sparkle" class="sparkle">
+
+  <!-- ONE form (no duplicates) -->
+  <form id="loginForm" class="loginBox" autocomplete="off" novalidate>
+    <input id="email" type="email" placeholder="Email" class="loginInput" required>
+    <input id="password" type="password" placeholder="Password" class="loginInput" required>
+    <button class="loginButton" type="submit">Login</button>
+    <div id="loginError" class="errorMsg" aria-live="polite"></div>
+  </form>
+
+  <!-- White mail panel (hidden initially) -->
+  <div id="mailPanel" class="mailPanel" hidden>
+    <div class="mailPanelInner">
+      <h2>Hi, Anja! ✉️</h2>
+      <p>Wow you are so cool!</p>
+    </div>
   </div>
 
+  <script src="./Mail.js"></script>
 </body>
 </html>
